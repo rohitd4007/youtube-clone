@@ -13,7 +13,7 @@ type Props = {
 const VideoPlayer: React.FC<Props> = ({ video }) => {
     return (
         <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow" >
-            <video controls className="w-full h-full" >
+            <video controls className="w-full h-full" autoPlay muted >
                 <source src={video.videoUrl} type="video/mp4" />
                 {
                     video.captions?.map((caption, index) => (
@@ -23,8 +23,7 @@ const VideoPlayer: React.FC<Props> = ({ video }) => {
                             kind="subtitles"
                             srcLang={caption.lang}
                             src={caption.src}
-                            default={index === 0
-                            }
+                            default={index === 0}
                         />
                     ))}
                 Your browser does not support the video tag.
